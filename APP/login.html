@@ -4,37 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee404 - Login</title>
-
     <link rel="stylesheet" href="/public/CSS/login.css" />
   </head>
-  <script>
-    document
-      .querySelector(".login-form")
-      .addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-
-        const response = await fetch("/login", {
-          method: "POST",
-          body: formData,
-          credentials: "include",
-        });
-
-        if (response.ok) {
-          window.location.href = "/menu";
-        } else {
-          alert("Credenciais inválidas!");
-        }
-      });
-  </script>
   <body>
     <div class="bg-accent" aria-hidden="true"></div>
-
     <div class="login-container">
       <h2 class="login-title">Login</h2>
       <p class="subtitle">Já possui uma conta?</p>
-
       <form method="post" class="login-form">
         <input
           type="email"
@@ -43,7 +19,6 @@
           placeholder="Email"
           required
         />
-
         <div class="password-wrapper">
           <input
             type="password"
@@ -52,7 +27,6 @@
             placeholder="Senha"
             required
           />
-
           <span
             class="eye-icon"
             role="button"
@@ -62,15 +36,46 @@
             >👁️</span
           >
         </div>
-
         <button type="submit" class="btn-login">Entrar</button>
-
         <p class="register">
           Não tem uma conta? <a href="/register">registre-se aqui</a>
         </p>
       </form>
     </div>
+    <script>
+      document
+        .querySelector(".login-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const form = e.target;
+          const formData = new FormData(form);
 
-    <script src="/public/script/login.js"></script>
+          const response = await fetch("/login", {
+            method: "POST",
+            body: formData,
+            credentials: "include",
+          });
+
+          if (response.ok) {
+            window.location.href = "/menu";
+          } else {
+            alert("Credenciais inválidas!");
+          }
+        });
+
+      const eye = document.querySelector(".eye-icon");
+      const pwd = document.querySelector("#password");
+      if (eye && pwd) {
+        eye.addEventListener("click", function () {
+          pwd.type = pwd.type === "password" ? "text" : "password";
+        });
+        eye.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            pwd.type = pwd.type === "password" ? "text" : "password";
+          }
+        });
+      }
+    </script>
   </body>
 </html>
