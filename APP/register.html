@@ -1,24 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Coffee404 - Registrar</title>
+    <link rel="stylesheet" href="/public/CSS/register.css" />
   </head>
   <body>
-    <form action="/register" method="post">
-      <h2>Registro</h2>
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" required />
+    <div class="bg-accent" aria-hidden="true"></div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+    <div class="login-container">
+      <h2 class="login-title">Registrar</h2>
+      <p class="subtitle">Crie sua conta</p>
 
-      <label for="password">Senha:</label>
-      <input type="password" id="password" name="password" required />
+      <form action="/register" method="post" class="login-form">
+        <input type="text" id="name" name="name" placeholder="Nome" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
 
-      <button type="submit">Registrar</button>
-      <p>Já tem uma conta? <a href="/login">Entre aqui</a></p>
-    </form>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Senha"
+            required
+          />
+          <span
+            class="eye-icon"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Mostrar senha"
+            >👁️</span
+          >
+        </div>
+
+        <button type="submit" class="btn-login">Registrar</button>
+
+        <p class="login">Já tem uma conta? <a href="/login">entre aqui</a></p>
+      </form>
+    </div>
+
+    <script src="/public/script/register.js"></script>
   </body>
 </html>

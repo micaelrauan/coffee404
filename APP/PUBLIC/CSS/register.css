@@ -1,0 +1,308 @@
+/* vars */
+:root {
+  --bg-img: url("../ASSETS/image/background.png");
+  --grad: linear-gradient(180deg, #f5f7fa, #eef2f6);
+  --light: #fff;
+  --btn-color: #000000;
+  --soft-text: #ffffff;
+  --input-border: #d5d5d5;
+  --input-focus: rgba(255, 222, 207, 0.4);
+}
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* background (image then gradient) */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-img), var(--grad);
+  background-size: cover, cover;
+  background-position: center;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+/* entry for whole card */
+.login-container {
+  width: 380px;
+  padding: 26px;
+  text-align: center;
+  color: #222;
+  transform: translateY(20px);
+  animation: containerEnter 0.8s ease forwards;
+}
+
+@keyframes containerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* titles */
+.login-title {
+  font-size: 30px;
+  color: var(--light);
+  margin-bottom: 4px;
+  animation: fadeSlideDown 0.9s ease;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--soft-text);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: fadeSlideDown 1.05s ease;
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* form container */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: formEnter 0.6s ease forwards;
+}
+
+.login-form > * {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: itemIn 0.48s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+.login-form > *:nth-child(1) {
+  animation-delay: 0.18s;
+}
+.login-form > *:nth-child(2) {
+  animation-delay: 0.28s;
+}
+.login-form > *:nth-child(3) {
+  animation-delay: 0.38s;
+}
+.login-form > *:nth-child(4) {
+  animation-delay: 0.48s;
+}
+
+@keyframes formEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes itemIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* inputs */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--input-border);
+  background: #fff;
+  font-size: 14px;
+  transition: 0.22s ease;
+}
+
+input:focus {
+  border-color: var(--btn-color);
+  box-shadow: 0 6px 18px var(--input-focus);
+  transform: translateY(-2px);
+}
+
+/* password wrapper */
+.password-wrapper {
+  position: relative;
+}
+
+/* eye icon */
+.eye-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: background 0.16s ease, transform 0.14s ease;
+}
+
+.eye-icon:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.eye-icon.hidden {
+  color: #9a3412;
+}
+
+.eye-icon.pulse {
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* button */
+.btn-login {
+  background: var(--btn-color);
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #dadada;
+  transition: 0.14s;
+  animation: buttonPop 0.7s ease-out forwards;
+}
+
+@keyframes buttonPop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.btn-login:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.03);
+}
+
+.btn-login:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* footer */
+.login {
+  margin-top: 18px;
+  font-size: 14px;
+  color: black;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+.login a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: 600;
+  transition: 0.18s ease;
+}
+
+.register a:hover {
+  opacity: 0.75;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* glowing blob */
+.bg-accent {
+  position: fixed;
+  left: 50%;
+  top: 11%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 180, 150, 0.14),
+    rgba(255, 180, 150, 0.05) 40%,
+    transparent 70%
+  );
+  filter: blur(25px);
+  opacity: 0;
+  animation-name: glowPop, floatSlow;
+  animation-duration: 1s, 6s;
+  animation-timing-function: ease, linear;
+  animation-iteration-count: 1, infinite;
+}
+
+@keyframes glowPop {
+  from {
+    transform: translateX(-50%) scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* mobile tweaks */
+@media (max-width: 480px) {
+  .login-container {
+    width: 92%;
+    padding: 20px;
+  }
+  .bg-accent {
+    display: none;
+  }
+}

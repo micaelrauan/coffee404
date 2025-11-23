@@ -15,7 +15,7 @@ app.use(express.json());
 
 // pagina inicial
 app.get("/", (req, res) => {
-  return res.redirect("/register");
+  return res.redirect("/login");
 });
 
 app.use("/public", express.static(path.join(__dirname, "APP", "PUBLIC")));
@@ -33,6 +33,11 @@ app.get("/register", (req, res) => {
 // rota do menu principal
 app.get("/menu", (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "menu.html"));
+});
+
+// rota do perfil
+app.get("/perfil", (req, res) => {
+  return res.sendFile(path.join(__dirname, "APP", "perfil.html"));
 });
 
 // Conexão com o freeDB

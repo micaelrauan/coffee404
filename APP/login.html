@@ -1,20 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Coffee404 - Login</title>
+
+    <link rel="stylesheet" href="/public/CSS/login.css" />
   </head>
   <body>
-    <form action="/login" method="post">
-      <h2>Login</h2>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+    <div class="bg-accent" aria-hidden="true"></div>
 
-      <label for="password">Senha: </label>
-      <input type="password" id="password" name="password" required />
-      <button type="submit">Logar</button>
-      <p>Não tem uma conta? <a href="/register">registre-se aqui</a></p>
-    </form>
+    <div class="login-container">
+      <h2 class="login-title">Login</h2>
+      <p class="subtitle">Já possui uma conta?</p>
+
+      <form action="/login" method="post" class="login-form">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Senha"
+            required
+          />
+
+          <span
+            class="eye-icon"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Mostrar senha"
+            >👁️</span
+          >
+        </div>
+
+        <button type="submit" class="btn-login">Entrar</button>
+
+        <p class="register">
+          Não tem uma conta? <a href="/register">registre-se aqui</a>
+        </p>
+      </form>
+    </div>
+
+    <script src="/public/script/login.js"></script>
   </body>
 </html>
