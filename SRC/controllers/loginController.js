@@ -4,11 +4,10 @@ export const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    const [rows] = await db
-      .promise()
-      .query("SELECT id, nome, email, senha FROM usuarios WHERE email = ?", [
-        email,
-      ]);
+    const [rows] = await db.query(
+      "SELECT id, nome, email, senha FROM usuarios WHERE email = ?",
+      [email]
+    );
 
     if (rows.length === 0) {
       return res.status(401).send("Credenciais inválidas.");

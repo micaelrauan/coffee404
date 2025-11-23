@@ -41,7 +41,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true,
+      secure: true, // HTTPS no Vercel!
       maxAge: 1000 * 60 * 60 * 24 * 30, // -30dias tempo de login maximo
     },
     store: sessionStore,
@@ -55,7 +55,6 @@ app.use(
 // --------------------- ROTAS AQUI `-` ------------------ //
 // ------------------------------------------------------- //
 
-// rota raiz :D
 app.get("/", (req, res) => {
   return res.redirect("/login");
 });
@@ -101,13 +100,13 @@ app.get("/logout", (req, res) => {
 
 //-------------------CALL BACK - FREEDB MYSQL-----------------//
 // Obs: Nao mexer -_-
-db.connect((err) => {
-  if (err) {
-    console.error("Erro ao conectar com o banco mysql: ", err);
-  } else {
+db.query("SELECT 1")
+  .then(() => {
     console.log("Conectado com o banco mysql com sucesso!");
-  }
-});
+  })
+  .catch((err) => {
+    console.error("Erro ao conectar com o banco mysql: ", err);
+  });
 
 // rotas organizadas
 app.use("/", registerRoutes);
