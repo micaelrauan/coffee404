@@ -17,7 +17,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// CONFIGURAÇÃO DA SESSÃO COM O BANCO (freedb mysql) - NÃO MEXER -_-
+// CONFIGURAÇÃO DA SESSÃO COM O BANCO - NÃO MEXER -_-
 const MySQLStore = MySQLSession(session);
 const sessionStore = new MySQLStore({
   host: "sql.freedb.tech",
@@ -41,8 +41,9 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       maxAge: 1000 * 60 * 60 * 24 * 30, // -30dias tempo de login maximo
+      sameSite: "lax",
     },
     store: sessionStore,
     /*store: MongoStore.create({
@@ -98,7 +99,7 @@ app.get("/logout", (req, res) => {
   });
 });
 
-//-------------------CALL BACK - FREEDB MYSQL-----------------//
+//-------------------CALL BACK POOL-----------------//
 // Obs: Nao mexer -_-
 db.query("SELECT 1")
   .then(() => {
@@ -114,7 +115,7 @@ app.use("/", loginRoutes);
 
 //----------------------------------------------------------//
 
-// servidor - não mexer obs: ajustar depois, adicionar a prota no .env
+// servidor - não mexer obs: ajustar depois, adicionar a porta no .env
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor está rodando na porta ${PORT}`);
