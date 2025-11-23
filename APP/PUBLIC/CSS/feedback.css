@@ -1,0 +1,146 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background: #2b2b2b;
+  padding: 18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.25s ease;
+}
+
+.navbar a:hover,
+.navbar .active {
+  color: #c79d63;
+  text-shadow: 0 0 6px rgba(199, 157, 99, 0.6);
+}
+
+/* Page container */
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  animation: fadeSlideDown 0.8s ease forwards;
+}
+
+/* Title */
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #2b2b2b;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Form */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+  animation: fadeSlideUp 0.9s ease both;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+  background: #f9f9f9;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #c79d63;
+  box-shadow: 0 0 6px rgba(199, 157, 99, 0.4);
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 14px;
+  background: #c79d63;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: #a87f4b;
+  box-shadow: 0 0 10px rgba(199, 157, 99, 0.6);
+}
+
+/* Status message */
+.status {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
