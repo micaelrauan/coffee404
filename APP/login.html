@@ -7,6 +7,27 @@
 
     <link rel="stylesheet" href="/public/CSS/login.css" />
   </head>
+  <script>
+    document
+      .querySelector(".login-form")
+      .addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const response = await fetch("/login", {
+          method: "POST",
+          body: formData,
+          credentials: "include",
+        });
+
+        if (response.ok) {
+          window.location.href = "/menu";
+        } else {
+          alert("Credenciais inválidas!");
+        }
+      });
+  </script>
   <body>
     <div class="bg-accent" aria-hidden="true"></div>
 
@@ -14,7 +35,7 @@
       <h2 class="login-title">Login</h2>
       <p class="subtitle">Já possui uma conta?</p>
 
-      <form action="/login" method="post" class="login-form">
+      <form method="post" class="login-form">
         <input
           type="email"
           id="email"

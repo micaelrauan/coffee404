@@ -18,7 +18,7 @@ export const loginUser = async (req, res, next) => {
     if (user.senha === password) {
       req.session.loggedIn = true;
       req.session.user = user;
-      return res.redirect("/menu");
+      return res.status(200).send("Login feito!");
     }
 
     return res.status(401).send("Credenciais inválidas.");

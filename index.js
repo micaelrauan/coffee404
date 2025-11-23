@@ -40,15 +40,16 @@ app.use(
     secret: "mic4el",
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      secure: true,
-      maxAge: 1000 * 60 * 60 * 24 * 30, // -30dias tempo de login maximo
-      sameSite: "lax",
-    },
     store: sessionStore,
-    /*store: MongoStore.create({
-      mongoUrl: "mongodb://localhost:27017/Coffee404",
-    }),*/
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 1000 * 60 * 60 * 24 * 30, // -30dias tempo de login maximo
+    },
+    // /*store: MongoStore.create({
+    //   mongoUrl: "mongodb://localhost:27017/Coffee404",
+    // }),*/
   })
 );
 
