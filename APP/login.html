@@ -48,12 +48,18 @@
         .addEventListener("submit", async function (e) {
           e.preventDefault();
           const form = e.target;
-          const formData = new FormData(form);
+
+          const params = new URLSearchParams();
+          params.append("email", form.email.value);
+          params.append("password", form.password.value);
 
           const response = await fetch("/login", {
             method: "POST",
-            body: formData,
+            body: params,
             credentials: "include",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
           });
 
           if (response.ok) {

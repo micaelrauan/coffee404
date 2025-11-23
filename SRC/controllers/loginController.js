@@ -3,6 +3,7 @@ import db from "../database/db.js";
 export const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    console.log("Login recebido:", { email, password });
 
     const [rows] = await db.query(
       "SELECT id, nome, email, senha FROM usuarios WHERE email = ?",
@@ -14,10 +15,10 @@ export const loginUser = async (req, res, next) => {
     }
 
     const user = rows[0];
-
     if (user.senha === password) {
       req.session.loggedIn = true;
       req.session.user = user;
+
       return res.status(200).send("Login feito!");
     }
 
