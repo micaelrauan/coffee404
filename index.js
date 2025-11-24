@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
 import db from "./SRC/database/db.js";
+//import multer from "multer";
 
 //----------- VALIDADORES--------------------//
 import registerRoutes from "./SRC/routes/registerRoutes.js";
@@ -20,17 +21,38 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const SECRET = "mic4elr4auansecrettoken"; // segredo dos cookies lá do jwt
+const SECRET = "mic4elr4auansecrettoken"; // segredo dos cookies lá do jwt  -OBs: Adicionar no .env
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// -------------------------------- CONFIG MULTER ------------------------------- //ual ao do seu JWT!
+
+/*(const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./APP/PUBLIC/ASSETS/image/perfis/");
+  },
+  filename: (req, file, cb) => {
+    const token = req.cookies.auth_token;
+    let userId = "default";
+    if (token) {
+      try {
+        const decoded = jwt.verify(token, SECRET);
+        userId = decoded.id;
+      } catch (err) {}
+    }
+    const ext = file.originalname.split(".").pop();
+    cb(null, `${userId}.${ext}`);
+  },
+});
+const upload = multer({ storage });*/
+
 // ------------------------------------------------------- //
-// --------------------- ROTAS AQUI `-` ------------------ //
+// --------------------- ROTAS AQUI <3 ------------------- //
 // ------------------------------------------------------- //
 
-// ROTA RAIZ, se tiver token vai pro menu senao login Obs: da pra trocar depois
+// ------------------------------ ROTA RAIZ -------------------------------------------//
 app.get("/", (req, res) => {
   const token = req.cookies.auth_token;
   if (token) {
@@ -49,6 +71,8 @@ app.get("/", (req, res) => {
 app.use("/public", express.static(path.join(__dirname, "APP", "PUBLIC")));
 9;
 
+// -------------------------------- ROTAS DE AUTHENTICAÇÃO ---------------------------------//
+
 // rota de login
 app.get("/login", publicOnly, (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "login.html"));
@@ -58,6 +82,12 @@ app.get("/login", publicOnly, (req, res) => {
 app.get("/register", publicOnly, (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "register.html"));
 });
+
+// rotas organizadas
+app.use("/", registerRoutes);
+app.use("/", loginRoutes);
+
+// --------------------------------- ROTAS DA NAVBAR ---------------------------------- //
 
 // rota do menu principal
 app.get("/menu", (req, res) => {
@@ -84,6 +114,8 @@ app.get("/local", (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "local.html"));
 });
 
+// ------------------------------ ROTAS DO PERFIL ------------------------------------------- //
+
 // rota do perfil
 app.get("/perfil", sessionValidator, (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "perfil.html"));
@@ -95,7 +127,8 @@ app.get("/logout", sessionValidator, (req, res) => {
   return res.redirect("/menu");
 });
 
-//-------------------CALL BACK POOL-----------------//
+//------------------- CONEXAO COM O BANCO (logar no freedb)------------------//
+
 // Obs: Nao mexer
 db.query("SELECT 1")
   .then(() => {
@@ -105,14 +138,9 @@ db.query("SELECT 1")
     console.error("Erro ao conectar com o banco mysql: ", err);
   });
 
-// rotas organizadas
-app.use("/", registerRoutes);
-app.use("/", loginRoutes);
+//------------------------- SERIVIDOR ----------------------------------//
 
-//----------------------------------------------------------//
-
-// servidor - não mexer obs: ajustar depois, adicionar a porta no .env
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // -Obs: adicionar no .env uma porta pra facilitar
 app.listen(PORT, () => {
   console.log(`Servidor está rodando na porta ${PORT}`);
 });
