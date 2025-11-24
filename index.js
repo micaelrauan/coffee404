@@ -36,13 +36,13 @@ app.get("/", (req, res) => {
   if (token) {
     try {
       jwt.verify(token, SECRET);
-      return res.sendFile(path.join(__dirname, "APP", "menu.html"));
+      return res.sendFile(path.join(__dirname, "APP", "perfil.html"));
     } catch (err) {
       res.clearCookie("auth_token");
-      return res.sendFile(path.join(__dirname, "APP", "login.html"));
+      return res.sendFile(path.join(__dirname, "APP", "menu.html"));
     }
   } else {
-    return res.sendFile(path.join(__dirname, "APP", "login.html"));
+    return res.sendFile(path.join(__dirname, "APP", "menu.html"));
   }
 });
 
@@ -60,13 +60,28 @@ app.get("/register", publicOnly, (req, res) => {
 });
 
 // rota do menu principal
-app.get("/menu", sessionValidator, (req, res) => {
+app.get("/menu", (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "menu.html"));
 });
 
 // rota de feedback
-app.get("/feedback", sessionValidator, (req, res) => {
+app.get("/feedback", (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "feedback.html"));
+});
+
+// rota do sobre
+app.get("/sobre", (req, res) => {
+  return res.sendFile(path.join(__dirname, "APP", "sobre.html"));
+});
+
+// rota do cardapio
+app.get("/cardapio", (req, res) => {
+  return res.sendFile(path.join(__dirname, "APP", "cardapio.html"));
+});
+
+// rota da localização
+app.get("/local", (req, res) => {
+  return res.sendFile(path.join(__dirname, "APP", "local.html"));
 });
 
 // rota do perfil
@@ -74,25 +89,10 @@ app.get("/perfil", sessionValidator, (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "perfil.html"));
 });
 
-// rota do sobre
-app.get("/sobre", sessionValidator, (req, res) => {
-  return res.sendFile(path.join(__dirname, "APP", "sobre.html"));
-});
-
-// rota do cardapio
-app.get("/cardapio", sessionValidator, (req, res) => {
-  return res.sendFile(path.join(__dirname, "APP", "cardapio.html"));
-});
-
-// rota da localização
-app.get("/local", sessionValidator, (req, res) => {
-  return res.sendFile(path.join(__dirname, "APP", "local.html"));
-});
-
 // rota de logout
-app.get("/logout", (req, res) => {
+app.get("/logout", sessionValidator, (req, res) => {
   res.clearCookie("auth_token");
-  return res.redirect("/login");
+  return res.redirect("/menu");
 });
 
 //-------------------CALL BACK POOL-----------------//

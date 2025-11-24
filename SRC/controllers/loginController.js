@@ -22,7 +22,7 @@ export const loginUser = async (req, res) => {
       sameSite: "lax",
       maxAge: 1000 * 60 * 60 * 24 * 30,
     });
-    return res.redirect("/menu");
+    return res.redirect("/perfil");
   }
   return res.redirect("/login");
 };

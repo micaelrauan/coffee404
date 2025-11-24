@@ -21,8 +21,9 @@
 body {
   margin: 0;
   padding: 0;
+  justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("../ASSETS/image/backgroundabout.png");
+  background-image: url("../ASSETS/image/background.png");
   background-size: cover;
 }
 
@@ -139,7 +140,18 @@ body {
   transform: translateY(-3px);
 }
 
-/*------------------- INFORMAÇÕES -------------------*/
+/* ------------------- PERFIL ------------------------------ */
+
+.perfil-container {
+  margin: 100px auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgb(255, 255, 255);
+  width: 400px;
+}
 
 /* ------------------ RESPONSIVIDADE ------------------ */
 @media (max-width: 768px) {
