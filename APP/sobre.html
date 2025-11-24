@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quem Somos - Cafeteria</title>
+    <link rel="stylesheet" href="./PUBLIC/CSS/sobre.css" />
+  </head>
+  <body>
+    <button class="botao-quem" onclick="abrirPopup()">Quem Somos Nós</button>
+
+    <!-- POPUP -->
+    <div id="popup" class="popup">
+      <div class="popup-conteudo">
+        <h2>Nossa Equipe</h2>
+        <p>
+          Somos alunos de 1º ano do curso de Informática, apaixonados por
+          tecnologia e pelo universo da programação. Nossa equipe surgiu com o
+          objetivo de criar uma cafeteria temática pensada especialmente para
+          desenvolvedores. A Coffee 404 representa não apenas um trabalho
+          escolar, mas também a nossa visão de como a tecnologia pode se
+          conectar com experiências reais e ambientes inspiradores. Nosso
+          Propósito Criar um ambiente onde a tecnologia encontra conforto. Um
+          espaço pensado para quem precisa estudar, programar, trocar ideias,
+          desenvolver projetos e, claro, aproveitar um bom café. Queremos que a
+          Coffee 404 seja uma cafeteria onde cada detalhe faça referência ao
+          mundo da TI, criando uma imersão divertida e original. Por que “Coffee
+          404”? O nome faz referência ao famoso erro “404 – Not Found”, muito
+          comum no cotidiano de quem programa. A ideia é justamente transformar
+          algo técnico — e às vezes frustrante — em algo leve, divertido e com
+          identidade própria.
+        </p>
+
+        <button class="fechar" onclick="fecharPopup()">Fechar</button>
+      </div>
+    </div>
+
+    <script>
+      function abrirPopup() {
+        document.getElementById("popup").style.display = "flex";
+      }
+      function fecharPopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

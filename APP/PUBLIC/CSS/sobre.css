@@ -1,0 +1,79 @@
+/* FOTO EM TELA CHEIA */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../ASSETS/image/backgroundabout.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BOTÃO BONITO NO MEIO DA TELA */
+.botao-quem {
+  padding: 18px 35px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background-color: #6b4f36;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.botao-quem:hover {
+  transform: scale(1.08);
+  background-color: #523d2a;
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-conteudo {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  animation: popupAnim 0.3s ease;
+}
+
+@keyframes popupAnim {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fechar {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #6b4f36;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.fechar:hover {
+  background: #523d2a;
+}

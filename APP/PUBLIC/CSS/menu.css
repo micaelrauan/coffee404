@@ -1,0 +1,134 @@
+/* =========================================================
+   VARIÁVEIS DE TEMA — mantém o padrão visual do projeto
+   ========================================================= */
+:root {
+  --navbar-bg: rgba(255, 255, 255, 0.16); /* fundo glass */
+  --navbar-border: rgba(255, 255, 255, 0.25);
+  --navbar-text: #000000; /* texto preto p/ contrastar */
+  --navbar-hover: rgba(255, 255, 255, 0.25);
+  --navbar-blur: blur(12px);
+}
+
+/* =========================================================
+   NAVBAR — container principal
+   ========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* centraliza independente do width */
+  width: 92%;
+  height: 60px; /* deixei um pouco maior pra equalizar com o avatar */
+
+  background: var(--navbar-bg);
+  border: 1px solid var(--navbar-border);
+  backdrop-filter: var(--navbar-blur);
+  border-radius: 18px;
+
+  padding: 0 24px;
+
+  display: flex;
+  justify-content: space-between; /* separa logo / links / perfil */
+  align-items: center; /* garante alinhamento vertical */
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+
+  animation: navbarEnter 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* animação de entrada suave */
+@keyframes navbarEnter {
+  from {
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   LOGO — lado esquerdo
+   ========================================================= */
+.logo img {
+  height: 55px; /* ajustado pra não fugir do layout */
+  width: auto;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  transition: 0.25s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   MENU DE LINKS — centro da navbar
+   ========================================================= */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 26px;
+  margin-right: 20px;
+
+  /* Isso garante que textos fiquem centralizados verticalmente */
+  align-items: center;
+}
+
+/* estilo padrão dos links */
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--navbar-text);
+  font-size: 16px;
+  font-weight: 600;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  display: flex; /* necessário pra alinhar texto + avatar */
+  align-items: center; /* centraliza vertical */
+  gap: 8px; /* distância entre texto e imagem */
+
+  transition: 0.25s ease;
+}
+
+/* avatar dentro do <a> (ex.: <a><img/></a>) */
+.navbar ul li a img {
+  border-radius: 50%; /* deixa circular */
+  height: 40px;
+  width: 40px;
+  object-fit: cover; /* impede distorção */
+}
+
+/* hover padrão */
+.navbar ul li a:hover {
+  background: var(--navbar-hover);
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   RESPONSIVO — ajustes para mobile
+   ========================================================= */
+@media (max-width: 768px) {
+  .navbar {
+    width: 96%;
+    height: 65px;
+    padding: 0 16px;
+  }
+
+  .navbar ul {
+    gap: 14px;
+  }
+
+  .navbar ul li a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .navbar ul li a img {
+    height: 34px;
+    width: 34px;
+  }
+}

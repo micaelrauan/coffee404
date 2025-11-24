@@ -11,7 +11,7 @@
     <div class="login-container">
       <h2 class="login-title">Login</h2>
       <p class="subtitle">Já possui uma conta?</p>
-      <form method="post" class="login-form">
+      <form action="/login" method="post" class="login-form">
         <input
           type="email"
           id="email"
@@ -42,46 +42,5 @@
         </p>
       </form>
     </div>
-    <script>
-      document
-        .querySelector(".login-form")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const form = e.target;
-
-          const params = new URLSearchParams();
-          params.append("email", form.email.value);
-          params.append("password", form.password.value);
-
-          const response = await fetch("/login", {
-            method: "POST",
-            body: params,
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-          });
-
-          if (response.ok) {
-            window.location.href = "/menu";
-          } else {
-            alert("Credenciais inválidas!");
-          }
-        });
-
-      const eye = document.querySelector(".eye-icon");
-      const pwd = document.querySelector("#password");
-      if (eye && pwd) {
-        eye.addEventListener("click", function () {
-          pwd.type = pwd.type === "password" ? "text" : "password";
-        });
-        eye.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            pwd.type = pwd.type === "password" ? "text" : "password";
-          }
-        });
-      }
-    </script>
   </body>
 </html>
