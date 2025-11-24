@@ -79,6 +79,16 @@ app.get("/sobre", sessionValidator, (req, res) => {
   return res.sendFile(path.join(__dirname, "APP", "sobre.html"));
 });
 
+// rota do cardapio
+app.get("/cardapio", sessionValidator, (req, res) => {
+  return res.sendFile(path.join(__dirname, "APP", "cardapio.html"));
+});
+
+// rota da localização
+app.get("/local", sessionValidator, (req, res) => {
+  return res.sendFile(path.join(__dirname, "APP", "local.html"));
+});
+
 // rota de logout
 app.get("/logout", (req, res) => {
   res.clearCookie("auth_token");

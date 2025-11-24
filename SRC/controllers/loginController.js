@@ -24,5 +24,5 @@ export const loginUser = async (req, res) => {
     });
     return res.redirect("/menu");
   }
-  return res.status(401).send("Credenciais inválidas.");
+  return res.redirect("/login");
 };

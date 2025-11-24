@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --navbar-bg: rgba(255, 255, 255, 0.16);
   --navbar-border: rgba(255, 255, 255, 0.25);
@@ -15,16 +21,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #26201b;
-  background-image: url("../ASSETS/image/backgroundabout.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../ASSETS/image/background.png");
+  background-size: cover;
 }
 
-/* NAVBAR mais rápida */
+/* ------------------ CONTAINER NAVBAR ------------------ */
 .navbar {
   position: fixed;
   top: 0;
@@ -48,14 +50,15 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 999;
 
-  opacity: 1;
-  animation: navbarEnter 0.27s cubic-bezier(0.77, 0, 0.18, 1) forwards; /* mais rápida */
+  animation: navbarEnter 0.8s ease forwards;
+  opacity: 0;
 }
 
+/* ------------------ ANIMAÇÃO ENTRADA ------------------ */
 @keyframes navbarEnter {
   from {
-    transform: translateX(-50%) translateY(-10px);
-    opacity: 0.2;
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
   }
   to {
     transform: translateX(-50%) translateY(0);
@@ -63,12 +66,7 @@ body {
   }
 }
 
-/* LOGO LADO A LADO */
-.logo {
-  display: flex;
-  align-items: center;
-}
-
+/* ------------------ LOGO QUE VAI PRO MENU ------------------ */
 .logo img {
   height: 55px;
   width: auto;
@@ -82,9 +80,14 @@ body {
   filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.6));
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .logo p {
-  margin-left: 8px;
-  font-size: 18px;
+  margin-left: 5px;
+  font-size: 15px;
   font-weight: bold;
   color: rgb(44, 44, 44);
   font-family: "Anton", sans-serif;
@@ -96,12 +99,14 @@ body {
   text-decoration: none;
 }
 
-/* ITENS DA NAVBAR */
+/* ------------------ ITENS DA NAVBAR ------------------ */
+
 .navbar ul {
   display: flex;
   list-style: none;
   gap: 10px;
   margin-right: 20px;
+
   align-items: center;
 }
 
@@ -111,11 +116,14 @@ body {
   font-size: 16px;
   font-weight: 600;
   font-family: "Anton", sans-serif;
+
   padding: 8px 14px;
   border-radius: 10px;
+
   display: flex;
   align-items: center;
   gap: 8px;
+
   transition: 0.25s ease;
 }
 
@@ -131,104 +139,25 @@ body {
   transform: translateY(-3px);
 }
 
-/* Responsividade */
+/* ------------------ RESPONSIVIDADE ------------------ */
 @media (max-width: 768px) {
   .navbar {
     width: 96%;
     height: 65px;
     padding: 0 16px;
   }
+
   .navbar ul {
     gap: 14px;
   }
+
   .navbar ul li a {
     font-size: 14px;
     padding: 6px 10px;
   }
+
   .navbar ul li a img {
     height: 34px;
     width: 34px;
   }
-}
-
-/* BOTÃO ANIMADO NO MEIO DA TELA */
-.botao-quem {
-  margin-top: 90px; /* desce pra não ficar atrás da navbar */
-  padding: 18px 35px;
-  font-size: 22px;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  background-color: #6b4f36;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  animation: botaoFade 0.55s cubic-bezier(0.77, 0, 0.18, 1) both;
-  transition: 0.3s;
-}
-
-@keyframes botaoFade {
-  from {
-    transform: scale(0.8) translateY(-35px);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
-
-.botao-quem:hover {
-  transform: scale(1.08);
-  background-color: #523d2a;
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.42);
-  filter: brightness(1.07);
-}
-
-/* POPUP */
-.popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.popup-conteudo {
-  background: #fff;
-  padding: 25px;
-  border-radius: 15px;
-  max-width: 500px;
-  text-align: center;
-  animation: popupAnim 0.35s cubic-bezier(0.77, 0, 0.18, 1);
-}
-
-@keyframes popupAnim {
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.fechar {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #6b4f36;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.22s;
-}
-
-.fechar:hover {
-  background: #523d2a;
-  transform: scale(1.06);
 }

@@ -1,58 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coffe 404 - Feedback</title>
+    <title>Coffee 404 - Feedback</title>
     <link rel="stylesheet" href="./PUBLIC/CSS/feedback.css" />
   </head>
   <body>
     <nav class="navbar">
+      <div class="logo">
+        <a href="/menu"><img src="./PUBLIC/ASSETS/image/logoblack.png" /></a>
+        <a href="/menu"><p>Coffe 404</p></a>
+      </div>
       <ul>
         <li><a href="/menu">Inicio</a></li>
         <li><a href="/sobre">Sobre</a></li>
         <li><a href="/cardapio">Cardápio</a></li>
         <li><a href="/local">Local</a></li>
-        <li><a class="active" href="/feedback">Feedback</a></li>
-        <li><a href="/perfil">Perfil</a></li>
+        <li><a href="/feedback">Feedback</a></li>
+        <li>
+          <a href="/perfil"><img src="./PUBLIC/ASSETS/image/perfil.png" /></a>
+        </li>
       </ul>
     </nav>
-
-    <section class="container">
-      <h1 class="title">Nos envie seu feedback ☕</h1>
-      <p class="subtitle">Sua opinião nos ajuda a melhorar!</p>
-
-      <form id="feedbackForm">
-        <div class="input-group">
-          <label>Seu nome</label>
-          <input type="text" id="name" placeholder="Digite seu nome" required />
-        </div>
-
-        <div class="input-group">
-          <label>Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="email@exemplo.com"
-            required
-          />
-        </div>
-
-        <div class="input-group">
-          <label>Mensagem</label>
-          <textarea
-            id="message"
-            placeholder="Escreva seu feedback..."
-            required
-          ></textarea>
-        </div>
-
-        <button type="submit" class="btn">Enviar Feedback</button>
-      </form>
-
-      <p id="statusMsg" class="status"></p>
-    </section>
-
-    <script src="./PUBLIC/script/feedback.js"></script>
   </body>
 </html>
