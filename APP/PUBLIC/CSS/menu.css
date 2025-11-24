@@ -1,24 +1,40 @@
-/* =========================================================
-   VARIÁVEIS DE TEMA — mantém o padrão visual do projeto
-   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
-  --navbar-bg: rgba(255, 255, 255, 0.16); /* fundo glass */
+  --navbar-bg: rgba(255, 255, 255, 0.16);
   --navbar-border: rgba(255, 255, 255, 0.25);
-  --navbar-text: #000000; /* texto preto p/ contrastar */
+  --navbar-text: #ffffff;
   --navbar-hover: rgba(255, 255, 255, 0.25);
   --navbar-blur: blur(12px);
 }
 
-/* =========================================================
-   NAVBAR — container principal
-   ========================================================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../ASSETS/image/background.png");
+  background-size: cover;
+}
+
+/* ------------------ CONTAINER NAVBAR ------------------ */
 .navbar {
   position: fixed;
   top: 0;
   left: 50%;
-  transform: translateX(-50%); /* centraliza independente do width */
+  transform: translateX(-50%);
   width: 92%;
-  height: 60px; /* deixei um pouco maior pra equalizar com o avatar */
+  height: 60px;
+  margin-top: 10px;
 
   background: var(--navbar-bg);
   border: 1px solid var(--navbar-border);
@@ -28,8 +44,8 @@
   padding: 0 24px;
 
   display: flex;
-  justify-content: space-between; /* separa logo / links / perfil */
-  align-items: center; /* garante alinhamento vertical */
+  justify-content: space-between;
+  align-items: center;
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 999;
@@ -38,7 +54,7 @@
   opacity: 0;
 }
 
-/* animação de entrada suave */
+/* ------------------ ANIMAÇÃO ENTRADA ------------------ */
 @keyframes navbarEnter {
   from {
     transform: translateX(-50%) translateY(-20px);
@@ -50,11 +66,9 @@
   }
 }
 
-/* =========================================================
-   LOGO — lado esquerdo
-   ========================================================= */
+/* ------------------ LOGO QUE VAI PRO MENU ------------------ */
 .logo img {
-  height: 55px; /* ajustado pra não fugir do layout */
+  height: 55px;
   width: auto;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
   transition: 0.25s ease;
@@ -62,55 +76,70 @@
 
 .logo img:hover {
   transform: scale(1.05);
+  border-radius: 50%;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.6));
 }
 
-/* =========================================================
-   MENU DE LINKS — centro da navbar
-   ========================================================= */
-.navbar ul {
+.logo {
   display: flex;
-  list-style: none;
-  gap: 26px;
-  margin-right: 20px;
-
-  /* Isso garante que textos fiquem centralizados verticalmente */
   align-items: center;
 }
 
-/* estilo padrão dos links */
+.logo p {
+  margin-left: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(44, 44, 44);
+  font-family: "Anton", sans-serif;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ------------------ ITENS DA NAVBAR ------------------ */
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  margin-right: 20px;
+
+  align-items: center;
+}
+
 .navbar ul li a {
   text-decoration: none;
   color: var(--navbar-text);
   font-size: 16px;
   font-weight: 600;
+  font-family: "Anton", sans-serif;
 
   padding: 8px 14px;
   border-radius: 10px;
 
-  display: flex; /* necessário pra alinhar texto + avatar */
-  align-items: center; /* centraliza vertical */
-  gap: 8px; /* distância entre texto e imagem */
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
   transition: 0.25s ease;
 }
 
-/* avatar dentro do <a> (ex.: <a><img/></a>) */
 .navbar ul li a img {
-  border-radius: 50%; /* deixa circular */
+  border-radius: 50%;
   height: 40px;
   width: 40px;
-  object-fit: cover; /* impede distorção */
+  object-fit: cover;
 }
 
-/* hover padrão */
 .navbar ul li a:hover {
   background: var(--navbar-hover);
   transform: translateY(-3px);
 }
 
-/* =========================================================
-   RESPONSIVO — ajustes para mobile
-   ========================================================= */
+/* ------------------ RESPONSIVIDADE ------------------ */
 @media (max-width: 768px) {
   .navbar {
     width: 96%;

@@ -2,34 +2,63 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Quem Somos - Cafeteria</title>
+    <title>Coffee 404 - Sobre</title>
     <link rel="stylesheet" href="./PUBLIC/CSS/sobre.css" />
+    <!-- Se usar a fonte Anton do Google Fonts, adicione: -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton:400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/menu"
+          ><img src="./PUBLIC/ASSETS/image/logoblack.png" alt="Logo Coffee 404"
+        /></a>
+        <a href="/menu"><p>Coffee 404</p></a>
+      </div>
+      <ul>
+        <li><a href="/menu">Início</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/cardapio">Cardápio</a></li>
+        <li><a href="/local">Local</a></li>
+        <li><a href="/feedback">Feedback</a></li>
+        <li>
+          <a href="/perfil"
+            ><img src="./PUBLIC/ASSETS/image/perfil.png" alt="Perfil"
+          /></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Botão animado via CSS (classe já faz a entrada suave) -->
     <button class="botao-quem" onclick="abrirPopup()">Quem Somos Nós</button>
 
-    <!-- POPUP -->
+    <!-- Popup que aparece ao clicar no botão -->
     <div id="popup" class="popup">
       <div class="popup-conteudo">
         <h2>Nossa Equipe</h2>
         <p>
-          Somos alunos de 1º ano do curso de Informática, apaixonados por
-          tecnologia e pelo universo da programação. Nossa equipe surgiu com o
-          objetivo de criar uma cafeteria temática pensada especialmente para
-          desenvolvedores. A Coffee 404 representa não apenas um trabalho
-          escolar, mas também a nossa visão de como a tecnologia pode se
-          conectar com experiências reais e ambientes inspiradores. Nosso
-          Propósito Criar um ambiente onde a tecnologia encontra conforto. Um
-          espaço pensado para quem precisa estudar, programar, trocar ideias,
-          desenvolver projetos e, claro, aproveitar um bom café. Queremos que a
-          Coffee 404 seja uma cafeteria onde cada detalhe faça referência ao
-          mundo da TI, criando uma imersão divertida e original. Por que “Coffee
-          404”? O nome faz referência ao famoso erro “404 – Not Found”, muito
-          comum no cotidiano de quem programa. A ideia é justamente transformar
-          algo técnico — e às vezes frustrante — em algo leve, divertido e com
-          identidade própria.
+          Somos alunos do 1º ano do curso de Informática, apaixonados por
+          tecnologia e pelo universo da programação.<br /><br />
+          Nossa equipe surgiu com o objetivo de criar uma cafeteria temática
+          pensada especialmente para desenvolvedores. A Coffee 404 representa
+          não apenas um trabalho escolar, mas também a nossa visão de como a
+          tecnologia pode se conectar com experiências reais e ambientes
+          inspiradores.<br /><br />
+          <strong>Nosso Propósito:</strong> Criar um ambiente onde a tecnologia
+          encontra conforto. Um espaço pensado para quem precisa estudar,
+          programar, trocar ideias, desenvolver projetos e, claro, aproveitar um
+          bom café.<br />
+          Queremos que a Coffee 404 seja uma cafeteria onde cada detalhe faça
+          referência ao mundo da TI, criando uma imersão divertida e
+          original.<br /><br />
+          <strong>Por que “Coffee 404”?</strong> O nome faz referência ao famoso
+          erro “404 – Not Found”, comum no cotidiano de quem programa. A ideia é
+          justamente transformar algo técnico — e às vezes frustrante — em algo
+          leve, divertido e com identidade própria.
         </p>
-
         <button class="fechar" onclick="fecharPopup()">Fechar</button>
       </div>
     </div>

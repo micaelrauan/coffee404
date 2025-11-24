@@ -1,20 +1,159 @@
-/* FOTO EM TELA CHEIA */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navbar-bg: rgba(255, 255, 255, 0.16);
+  --navbar-border: rgba(255, 255, 255, 0.25);
+  --navbar-text: #ffffff;
+  --navbar-hover: rgba(255, 255, 255, 0.25);
+  --navbar-blur: blur(12px);
+}
+
 body {
   margin: 0;
   padding: 0;
+  background-color: #26201b;
   background-image: url("../ASSETS/image/backgroundabout.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR mais rápida */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  height: 60px;
+  margin-top: 10px;
+
+  background: var(--navbar-bg);
+  border: 1px solid var(--navbar-border);
+  backdrop-filter: var(--navbar-blur);
+  border-radius: 18px;
+
+  padding: 0 24px;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+
+  opacity: 1;
+  animation: navbarEnter 0.27s cubic-bezier(0.77, 0, 0.18, 1) forwards; /* mais rápida */
+}
+
+@keyframes navbarEnter {
+  from {
+    transform: translateX(-50%) translateY(-10px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* LOGO LADO A LADO */
+.logo {
+  display: flex;
   align-items: center;
 }
 
-/* BOTÃO BONITO NO MEIO DA TELA */
+.logo img {
+  height: 55px;
+  width: auto;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  transition: 0.25s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  border-radius: 50%;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.6));
+}
+
+.logo p {
+  margin-left: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(44, 44, 44);
+  font-family: "Anton", sans-serif;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ITENS DA NAVBAR */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--navbar-text);
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Anton", sans-serif;
+  padding: 8px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.25s ease;
+}
+
+.navbar ul li a img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+
+.navbar ul li a:hover {
+  background: var(--navbar-hover);
+  transform: translateY(-3px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    width: 96%;
+    height: 65px;
+    padding: 0 16px;
+  }
+  .navbar ul {
+    gap: 14px;
+  }
+  .navbar ul li a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  .navbar ul li a img {
+    height: 34px;
+    width: 34px;
+  }
+}
+
+/* BOTÃO ANIMADO NO MEIO DA TELA */
 .botao-quem {
+  margin-top: 90px; /* desce pra não ficar atrás da navbar */
   padding: 18px 35px;
   font-size: 22px;
   font-weight: bold;
@@ -24,12 +163,26 @@ body {
   color: white;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: botaoFade 0.55s cubic-bezier(0.77, 0, 0.18, 1) both;
   transition: 0.3s;
+}
+
+@keyframes botaoFade {
+  from {
+    transform: scale(0.8) translateY(-35px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 .botao-quem:hover {
   transform: scale(1.08);
   background-color: #523d2a;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.42);
+  filter: brightness(1.07);
 }
 
 /* POPUP */
@@ -50,7 +203,7 @@ body {
   border-radius: 15px;
   max-width: 500px;
   text-align: center;
-  animation: popupAnim 0.3s ease;
+  animation: popupAnim 0.35s cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 @keyframes popupAnim {
@@ -72,8 +225,10 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.22s;
 }
 
 .fechar:hover {
   background: #523d2a;
+  transform: scale(1.06);
 }
