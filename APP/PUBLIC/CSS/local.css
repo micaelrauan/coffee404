@@ -139,6 +139,57 @@ body {
   transform: translateY(-3px);
 }
 
+/*----------------------- CONTEUDO -----------------------*/
+/* TITULO DA PAGINA */
+.titulo {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 90px;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+}
+
+.titulo h1 {
+  margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 45px;
+  color: #ffffff;
+}
+
+/*-------------------- FOOTER --------------------*/
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #222;
+  color: #eee;
+  margin-top: 2.5rem;
+}
+
+.footer-container p {
+  color: #ffffff;
+}
+
+.copy {
+  font-size: 15px;
+}
+
+.nomes {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
 /* ------------------ RESPONSIVIDADE ------------------ */
 @media (max-width: 768px) {
   .navbar {

@@ -139,6 +139,33 @@ body {
   transform: translateY(-3px);
 }
 
+/*-------------------- FOOTER --------------------*/
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #222;
+  color: #eee;
+  margin-top: 2.5rem;
+}
+
+.footer-container p {
+  color: #ffffff;
+}
+
+.copy {
+  font-size: 15px;
+}
+
+.nomes {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
 /* ------------------ RESPONSIVIDADE ------------------ */
 @media (max-width: 768px) {
   .navbar {

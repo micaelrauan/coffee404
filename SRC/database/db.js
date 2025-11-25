@@ -1,6 +1,6 @@
 import mysql from "mysql2/promise";
 
-// PARTE PROIBIDA DE MEXER $-$ obs: ajustar depois, adicionar um .env
+// obs: ajustar depois, adicionar um .env
 
 const db = mysql.createPool({
   host: "sql.freedb.tech",
