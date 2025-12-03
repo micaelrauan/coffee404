@@ -21,12 +21,16 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: url("../ASSETS/image/background.png");
-  background-size: cover;
+  background: #f5f3ef;
+  color: #6f6a63;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 /* ------------------ CONTAINER NAVBAR ------------------ */
+/* Estilos movidos para menu.css */
 .navbar {
   position: fixed;
   top: 0;
@@ -49,9 +53,6 @@ body {
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 999;
-
-  animation: navbarEnter 0.8s ease forwards;
-  opacity: 0;
 }
 
 /* ------------------ ANIMAÇÃO ENTRADA ------------------ */
@@ -139,6 +140,142 @@ body {
   transform: translateY(-3px);
 }
 
+/* ------------------ CARDÁPIO ------------------ */
+
+/* MENU FIXO */
+.menu-categorias {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 90px;
+  flex-wrap: wrap;
+  padding: 30px 0;
+  background: #eee7df;
+}
+
+/* Remove estilo padrão do navegador */
+.menu-categorias button {
+  all: unset;
+}
+
+/* Estilo dos botões */
+.menu-categorias .btn-cat {
+  padding: 8px 28px;
+  border-radius: 30px;
+  border: 2px solid #c8b7a4;
+  background: transparent;
+  color: #a48c74;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  display: inline-block;
+}
+
+.menu-categorias a {
+  text-decoration: none;
+}
+
+/* Hover igual ao da We Coffee */
+.menu-categorias .btn-cat:hover {
+  background: #c8b7a4;
+  color: white;
+}
+
+/* Espaço para não ficar atrás do menu */
+body {
+  padding-top: 0px;
+}
+
+/* TÍTULOS DAS SEÇÕES */
+h2 span {
+  display: block;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: #8a7a6a;
+  margin: 40px 40px 10px;
+}
+
+/* LINHA-TITULO */
+.linha-titulo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0 40px 30px;
+}
+
+.linha-titulo span {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #8c8c8c;
+  font-weight: 500;
+}
+
+.linha-titulo .linha {
+  flex: 1;
+  height: 1px;
+  background-color: #d9d2c8;
+}
+
+/* BANNERS */
+.banner-cafes img,
+.banner-paes img,
+.banner-chas img,
+.banner-doces img,
+.banner-salgados img {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: 30px auto 40px;
+  border-radius: 25px;
+}
+
+/* ITENS DO CARDÁPIO */
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 30px 40px;
+}
+
+.item img {
+  width: 90px;
+  height: 90px;
+  background: #e6dfd7;
+  border-radius: 12px;
+}
+
+.infor h3 {
+  font-size: 17px;
+  color: #7a6c5d;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.preço {
+  display: block;
+  color: #c7b8a6;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.infor p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #8a8a8a;
+}
+
+/* LINHAS ENTRE ITENS */
+.linha {
+  width: 100%;
+  height: 1px;
+  background-color: #e5ded6;
+  margin: 0 auto;
+}
+
 /*-------------------- FOOTER --------------------*/
 
 .footer-container {
@@ -168,19 +305,16 @@ body {
 
 /* ------------------ RESPONSIVIDADE ------------------ */
 @media (max-width: 768px) {
-  .navbar {
-    width: 96%;
-    height: 65px;
-    padding: 0 16px;
+  .menu-categorias {
+    padding: 0 10px;
   }
 
-  .navbar ul {
-    gap: 14px;
+  .card {
+    margin: 10px 5px;
   }
 
-  .navbar ul li a {
-    font-size: 14px;
-    padding: 6px 10px;
+  .item {
+    margin: 8px 0;
   }
 
   .navbar ul li a img {

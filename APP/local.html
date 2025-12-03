@@ -1,93 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Local | Coffee 404</title>
     <link rel="stylesheet" href="./PUBLIC/CSS/local.css" />
-
-    <!--BIBLIOTECAS-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./PUBLIC/CSS/menu.css" />
   </head>
   <body>
     <main>
       <nav class="navbar">
-      <div class="logo">
-        <a href="/menu"><img src="./PUBLIC/ASSETS/image/logoblack.png" /></a>
-        <a href="/menu"><p>Coffe 404</p></a>
-      </div>
-       <ul>
-         <li><a href="/menu">Inicio</a></li>
-         <li><a href="/sobre">Sobre</a></li>
-         <li><a href="/cardapio">Cardápio</a></li>
-         <li><a href="/local">Local</a></li>
-         <li><a href="/feedback">Feedback</a></li>
-         <li>
-          <a href="/perfil"><img src="./PUBLIC/ASSETS/image/perfil.png" /></a>
-         </li>
-       </ul>
+        <div class="logo">
+          <a href="/menu">
+            <img src="./PUBLIC/ASSETS/image/logoblack.png" alt="Coffee 404" />
+          </a>
+          <a href="/menu"><p>Coffee 404</p></a>
+        </div>
+        <ul>
+          <li><a href="/menu">Início</a></li>
+          <li><a href="/sobre">Sobre</a></li>
+          <li><a href="/cardapio">Cardápio</a></li>
+          <li><a href="/local" class="active">Local</a></li>
+          <li><a href="/feedback">Feedback</a></li>
+          <li>
+            <a href="/perfil">
+              <img src="./PUBLIC/ASSETS/image/perfil.png" alt="Perfil" />
+            </a>
+          </li>
+        </ul>
       </nav>
 
-    <div class="bg-overlay"></div>
-    
-    <!-- CONTEÚDO  -->
-    <div>
-        <div class="titulo">
-            <h1>Conheça nossas unidades</h1>
-            <p>Encontre a unidade mais proxima de você</p>
+    <div class="main-content">
+      <div class="titulo">
+        <h1>Conheça nossas unidades</h1>
+        <p>Encontre a unidade mais próxima de você</p>
+      </div>
+
+      <div class="unidades-container">
+        <!-- UNIDADE 1 -->
+        <div class="unidade-template">
+          <img src="./PUBLIC/ASSETS/image/aldeota.jpg" alt="Unidade Aldeota" />
+          <div class="infor-container">
+            <h2>Unidade Aldeota</h2>
+            <p>
+              <i class="fa-solid fa-location-dot icon"></i>Av. Monsenhor Tabosa,
+              2345 — Aldeota, Fortaleza-CE
+            </p>
+            <p><i class="fa-solid fa-phone icon"></i>(85) 91354-9245</p>
+            <p>
+              <i class="fa-solid fa-clock icon"></i>Segunda a Sexta, 8:00 às
+              18:00
+            </p>
+            <p><i class="fa-solid fa-mug-hot icon"></i>Aberto agora</p>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.278320179475!2d-38.49620392495751!3d-3.750575096195832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7495e0e9b0a7d5%3A0x5a5670b1a4b5d5f5!2sAv.%20Monsenhor%20Tabosa%2C%202345%20-%20Aldeota%2C%20Fortaleza%20-%20CE%2C%2060115-000!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
         </div>
 
-        <div class="unidades-container">
+        <!-- UNIDADE 2 -->
+        <div class="unidade-template">
+          <img
+            src="./PUBLIC/ASSETS/image/meireles.jpeg"
+            alt="Unidade Meireles"
+          />
+          <div class="infor-container">
+            <h2>Unidade Meireles</h2>
+            <p>
+              <i class="fa-solid fa-location-dot icon"></i>Rua Beira-Mar, 1023 —
+              Meireles, Fortaleza-CE
+            </p>
+            <p><i class="fa-solid fa-phone icon"></i>(85) 91343-9934</p>
+            <p>
+              <i class="fa-solid fa-clock icon"></i>Segunda a Sábado, 8:00 às
+              20:00
+            </p>
+            <p><i class="fa-solid fa-mug-hot icon"></i>Aberto agora</p>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.278320179475!2d-38.49620392495751!3d-3.750575096195832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7495e0e9b0a7d5%3A0x5a5670b1a4b5d5f5!2sRua%20Beira%20Mar%2C%201023%20-%20Meireles%2C%20Fortaleza%20-%20CE%2C%2060115-000!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+        </div>
 
-          <!-- UNIDADE 1 -->
-            <a href="local/aldeota">
-              <div class="unidade-template">
-              
-              <img src="./PUBLIC/ASSETS/image/background.png" alt="Unidade 1">
+        <!-- UNIDADE 3 -->
+        <div class="unidade-template">
+          <img src="./PUBLIC/ASSETS/image/coco.jpeg" alt="Unidade Cocó" />
+          <div class="infor-container">
+            <h2>Unidade Cocó</h2>
+            <p>
+              <i class="fa-solid fa-location-dot icon"></i>Rua Desembargador
+              Moreira, 789 — Cocó, Fortaleza-CE
+            </p>
+            <p><i class="fa-solid fa-phone icon"></i>(85) 90193-4534</p>
+            <p>
+              <i class="fa-solid fa-clock icon"></i>Terça a Domingo, 9:00 às
+              19:00
+            </p>
+            <p><i class="fa-solid fa-mug-hot icon"></i>Aberto agora</p>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.278320179475!2d-38.49620392495751!3d-3.750575096195832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7495e0e9b0a7d5%3A0x5a5670b1a4b5d5f5!2sRua%20Desembargador%20Moreira%2C%20789%20-%20Coc%C3%B3%2C%20Fortaleza%20-%20CE%2C%2060115-000!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
 
-              <div class="infor-container">
-                <h2>Unidade aldeota</h2>
-                <p><i class="fa-solid fa-location-dot icon"></i>Av. Monsenhor Tabosa, 2345 — Aldeota, Fortaleza-CE</p>
-                <p><i class="fa-solid fa-phone icon"></i>(85) 91354-9245</p>
-                <p><i class="fa-solid fa-clock icon"></i>Segunda a Sexta, 8:00 a 18:00</p>
-              </div>
-             </div>
-            </a>
-
-          <!-- UNIDADE 2 -->
-            <div class="unidade-template">
-              
-              <img src="./PUBLIC/ASSETS/image/background.png" alt="Unidade 1">
-
-              <div class="infor-container">
-                <h2>Unidade meireles</h2>
-                <p><i class="fa-solid fa-location-dot icon"></i>Rua Beira-Mar, 1023 — Meireles, Fortaleza-CE</p>
-                <p><i class="fa-solid fa-phone icon"></i>(85) 91343-9934</p>
-                <p><i class="fa-solid fa-clock icon"></i>Segunda a Sexta, 8:00 a 18:00</p>
-              </div>
-            </div>
-
-          <!-- UNIDADE 3 -->
-            <div class="unidade-template">
-              
-              <img src="./PUBLIC/ASSETS/image/background.png" alt="Unidade 1">
-
-              <div class="infor-container">
-                <h2>Unidade cocó</h2>
-                <p><i class="fa-solid fa-location-dot icon"></i>Rua Desembargador Moreira, 789 — Cocó, Fortaleza-CE</p>
-                <p><i class="fa-solid fa-phone icon"></i>(85) 90193-4534</p>
-                <p><i class="fa-solid fa-clock icon"></i>Segunda a Sexta, 8:00 a 18:00</p>
-              </div>
-            </div>
-
-      </main>
-
-    <!-- FOOTER -->
     <footer class="footer-container">
-        <p class="copy">&copy; 2024 Coffee 404. Todos os direitos reservados.</p>
-        <p class="nomes">Micael Rauan | Vinicius Fonseca | Matheus Amorim | Ana Mel | Agatha Nogueira</p>
+      <p class="copy">&copy; 2025 Coffee 404. Todos os direitos reservados.</p>
+      <p class="nomes">
+        Micael Rauan | Vinicius Fonseca | Matheus Amorim | Ana Mel | Agatha
+        Nogueira
+      </p>
     </footer>
-</body>
 
+    <script>
+      // Adiciona classe ativa ao link da página atual
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentPage =
+          window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll("nav a");
+
+        navLinks.forEach((link) => {
+          const linkHref =
+            link.getAttribute("href").split("/").pop() || "index.html";
+          if (linkHref === currentPage) {
+            link.classList.add("active");
+          }
+        });
+
+        // Anima os cards ao rolar a página
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.querySelectorAll(".unidade-template").forEach((card) => {
+          observer.observe(card);
+        });
+      });
+    </script>
   </body>
 </html>

@@ -49,9 +49,6 @@ body {
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 999;
-
-  animation: navbarEnter 0.8s ease forwards;
-  opacity: 0;
 }
 
 /* ------------------ ANIMAÇÃO ENTRADA ------------------ */

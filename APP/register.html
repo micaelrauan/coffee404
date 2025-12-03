@@ -5,25 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registrar | Coffee 404</title>
     <link rel="stylesheet" href="/public/CSS/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
-    <div class="bg-accent" aria-hidden="true"></div>
+    <div class="back-button">
+      <a href="/"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </div>
 
     <div class="login-container">
-      <h2 class="login-title">Registrar</h2>
-      <p class="subtitle">Crie sua conta</p>
+      <div class="logo-container">
+        <img
+          src="./PUBLIC/ASSETS/image/logoblack.png"
+          alt="Coffee 404 Logo"
+          class="logo"
+        />
+      </div>
+      <h2 class="login-title">Crie sua conta</h2>
+      <p class="subtitle">Preencha os dados abaixo</p>
 
       <form action="/register" method="post" class="login-form">
-        <input type="text" id="name" name="name" placeholder="Nome" required />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
-        <!--s-->
-        <div class="password-wrapper">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Nome completo"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
           <input
             type="password"
             id="password"
@@ -37,16 +64,29 @@
             tabindex="0"
             aria-pressed="false"
             aria-label="Mostrar senha"
-            >👁️</span
+          >
+            <i class="far fa-eye"></i>
+          </span>
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms"
+            >Eu concordo com os <a href="#">Termos de Uso</a> e
+            <a href="#">Política de Privacidade</a></label
           >
         </div>
 
-        <button type="submit" class="btn-login">Registrar</button>
+        <button type="submit" class="btn-login">Criar conta</button>
 
-        <p class="login">Já tem uma conta? <a href="/login">entre aqui</a></p>
+        <div class="divider">
+          <span>ou</span>
+        </div>
+
+        <p class="login">Já tem uma conta? <a href="/login">Entre aqui</a></p>
       </form>
     </div>
 
-    <script src="/public/script/register.js"></script>
+    <script src="/public/javascript/password-toggle.js"></script>
   </body>
 </html>

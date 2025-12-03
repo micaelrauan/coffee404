@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | Coffee 404</title>
     <link rel="stylesheet" href="/public/CSS/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
-    <a href="/menu">Voltar pro menu</a>
-    <div class="bg-accent" aria-hidden="true"></div>
+    <div class="back-button">
+      <a href="/menu"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </div>
+
     <div class="login-container">
-      <h2 class="login-title">Login</h2>
-      <p class="subtitle">Já possui uma conta?</p>
+      <div class="logo-container">
+        <img
+          src="./PUBLIC/ASSETS/image/logoblack.png"
+          alt="Coffee 404 Logo"
+          class="logo"
+        />
+      </div>
+      <h2 class="login-title">Bem-vindo de volta!</h2>
+      <p class="subtitle">Faça login para continuar</p>
 
       <form action="/login" method="post" class="login-form">
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
-        <div class="password-wrapper">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
           <input
             type="password"
             id="password"
@@ -29,20 +47,25 @@
             placeholder="Senha"
             required
           />
-          <span
-            class="eye-icon"
-            role="button"
-            tabindex="0"
-            aria-pressed="false"
-            aria-label="Mostrar senha"
-            >👁️</span
-          >
         </div>
+
+        <div class="forgot-password">
+          <a href="#">Esqueceu sua senha?</a>
+        </div>
+
         <button type="submit" class="btn-login">Entrar</button>
+
+        <div class="divider">
+          <span>ou</span>
+        </div>
+
         <p class="register">
-          Não tem uma conta? <a href="/register">registre-se aqui</a>
+          Não tem uma conta? <a href="/register">Registre-se aqui</a>
         </p>
       </form>
     </div>
+
+    <script src="/public/javascript/login.js"></script>
+    <script src="/public/javascript/password-toggle.js"></script>
   </body>
 </html>

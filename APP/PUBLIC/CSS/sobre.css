@@ -18,15 +18,50 @@
   --navbar-blur: blur(12px);
 }
 
+html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("../ASSETS/image/backgroundabout.png");
   background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.content-wrapper {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  min-height: calc(
+    100vh - 200px
+  ); /* Altura total - altura do header e footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ------------------ CONTAINER NAVBAR ------------------ */
+/* Estilos movidos para menu.css */
 .navbar {
   position: fixed;
   top: 0;
@@ -49,9 +84,6 @@ body {
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 999;
-
-  animation: navbarEnter 0.8s ease forwards;
-  opacity: 0;
 }
 
 /* ------------------ ANIMAÇÃO ENTRADA ------------------ */
@@ -141,31 +173,200 @@ body {
 
 /*------------------- INFORMAÇÕES -------------------*/
 
+.botao-quem {
+  padding: 18px 35px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background-color: #6b4f36;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  display: block;
+  margin: 40px auto;
+  max-width: 90%;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.botao-quem:hover {
+  transform: translateY(-3px);
+  background-color: #523d2a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .botao-quem {
+    font-size: 18px;
+    padding: 15px 25px;
+    margin: 30px auto;
+    width: 90%;
+  }
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.popup-conteudo {
+  background-color: #fff9f0;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid #e0d0b8;
+  animation: popupAnim 0.3s ease-out;
+  box-sizing: border-box;
+}
+
+.popup-conteudo h2 {
+  color: #6f4e37;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2em;
+  font-family: "Anton", sans-serif;
+  letter-spacing: 1px;
+}
+
+.popup-conteudo p {
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: justify;
+  font-size: 16px;
+}
+
+@keyframes popupAnim {
+  from {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.fechar {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #6b4f36;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fechar:hover {
+  background: #523d2a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade do Popup */
+@media (max-width: 768px) {
+  .popup-conteudo {
+    padding: 20px 15px;
+    max-height: 85vh;
+  }
+
+  .popup-conteudo h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .popup-conteudo p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .fechar {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
 /*-------------------- FOOTER --------------------*/
 
 .footer-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   text-align: center;
-  padding: 10px;
+  padding: 15px 10px;
   background-color: #222;
   color: #eee;
-  margin-top: 2.5rem;
+  margin-top: auto;
+  flex-shrink: 0;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
 .footer-container p {
   color: #ffffff;
+  margin: 5px 0;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
 }
 
 .copy {
-  font-size: 15px;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
 .nomes {
-  margin-top: 5px;
+  margin-top: 8px;
   font-size: 12px;
+  opacity: 0.8;
+  color: #c4a484;
+}
+
+/* Garante que o footer fique sempre visível */
+body::after {
+  content: "";
+  display: block;
+  height: 60px; /* Altura do footer */
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 10px 5px;
+  }
+
+  .copy {
+    font-size: 12px;
+  }
+
+  .nomes {
+    font-size: 11px;
+  }
 }
 
 /* ------------------ RESPONSIVIDADE ------------------ */
